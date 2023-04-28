@@ -8,6 +8,7 @@ import PersonalPage from "../pages/PersonalPage";
 import PhysicalPage from "../pages/PhysicalPage";
 import UserManagementPage from "../pages/UserManagementPage";
 import DailyRecordPage from "../pages/DailyRecordPage";
+import ChartPage from "../pages/ChartPage";
 
 import AdminProtectedRoute from "../features/auth/AdminRoute";
 
@@ -42,6 +43,14 @@ const router = createBrowserRouter([
     element: (
       <AdminProtectedRoute>
         <DailyRecordPage />
+      </AdminProtectedRoute>
+    )
+  },
+  {
+    path: "/avgchart",
+    element: (
+      <AdminProtectedRoute>
+        <ChartPage />
       </AdminProtectedRoute>
     )
   }

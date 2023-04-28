@@ -1,5 +1,5 @@
 import {
-  RecordBox,
+  ContentBox,
   Table,
   SortWrapper,
   SortLabel,
@@ -55,7 +55,7 @@ export default function DailyRecordPage() {
 
   return (
     <Layout>
-      <RecordBox>
+      <ContentBox>
         <SortWrapper>
           <SortLabel htmlFor="sort-select">
             Sort by:
@@ -95,7 +95,9 @@ export default function DailyRecordPage() {
                   {new Date(e.date).toLocaleDateString()}
                 </td>
                 <td>
-                  {e.User.firstName} {e.User.lastName}
+                  {e.User
+                    ? `${e.User.firstName} ${e.User.lastName}`
+                    : ""}
                 </td>
                 <td>{e.height}</td>
                 <td>{e.weight}</td>
@@ -104,7 +106,7 @@ export default function DailyRecordPage() {
             ))}
           </tbody>
         </Table>
-      </RecordBox>
+      </ContentBox>
     </Layout>
   );
 }

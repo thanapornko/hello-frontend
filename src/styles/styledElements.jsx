@@ -132,7 +132,7 @@ export const SideBar = styled.div`
   left: 0;
   margin-top: 71.68px;
   padding: 50px;
-  z-index: 0;
+  z-index: 1;
   font-family: monospace;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
 `;
@@ -163,7 +163,7 @@ export const NavBar = styled.div`
   padding: 0 20px;
   position: fixed;
   box-sizing: border-box;
-  z-index: 0;
+  z-index: 2;
   font-family: monospace;
 `;
 export const NavBarTitle = styled.h1`
@@ -172,20 +172,6 @@ export const NavBarTitle = styled.h1`
   font-weight: bold;
   margin-left: 30px;
   cursor: default;
-`;
-export const AddNewUserButton = styled.button`
-  background-color: green;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  &:hover {
-    background-color: #076107;
-  }
 `;
 export const UserIcon = styled.i`
   margin-left: 4px;
@@ -199,7 +185,7 @@ export const LogoutIcon = styled(UserIcon)`
 /// React Modal add new record
 export const AddUserModal = styled(ReactModal)`
   position: absolute;
-  top: 8%;
+  top: 20%;
   left: 32%;
   right: 32%;
   bottom: 8%;
@@ -212,7 +198,7 @@ export const AddUserModal = styled(ReactModal)`
   flex-direction: column;
   align-items: center;
   font-family: monospace;
-  z-index: 5;
+  z-index: 0;
 `;
 export const CloseButton = styled.button`
   color: #000000;
@@ -226,16 +212,33 @@ export const CloseButton = styled.button`
   cursor: pointer;
 `;
 export const FormAddUserWrapper = styled(FormInfoWrapper)`
-  margin: 9px 0px;
+  margin: 5px 0px;
 `;
 
 /// User Management content
 export const ContentBox = styled.div`
   margin-left: 280px;
-  padding: 130px 100px 100px 100px;
-  z-index: 9;
+  padding: 150px 100px 100px 100px;
+  z-index: -10;
   display: flex;
   justify-content: center;
+`;
+export const AddNewUserButton = styled.button`
+  background-color: green;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  position: absolute;
+  left: 380px;
+  top: 100px;
+  border-radius: 4px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    background-color: #076107;
+  }
 `;
 export const Table = styled.table`
   border-collapse: collapse;
@@ -304,6 +307,7 @@ export const ValidateText = styled.p`
 export const SortWrapper = styled.div`
   font-family: monospace;
   position: absolute;
+  z-index: 0;
   font-size: 1rem;
   left: 380px;
   top: 110px;
@@ -311,14 +315,12 @@ export const SortWrapper = styled.div`
 export const SortLabel = styled.label`
   margin-right: 8px;
 `;
-export const RecordBox = styled(ContentBox)`
-  padding: 150px 100px 100px 100px;
-`;
 export const PaginationWrapper = styled.div`
   justify-content: center;
   font-family: monospace;
   font-size: 1rem;
   position: absolute;
+  z-index: 0;
   top: 100px;
 `;
 export const PageButton = styled.button`

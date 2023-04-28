@@ -10,3 +10,6 @@ export const editUser = (id, updatedUser) =>
 
 export const getAllRecord = () =>
   axios.get("/admin/record");
+
+export const getUserAvgRecord = () =>
+  axios.get("/admin/avg");

@@ -1,5 +1,7 @@
 import {
   ContentBox,
+  AddNewUserButton,
+  UserIcon,
   Table,
   EditInput,
   EditIcon,
@@ -9,6 +11,7 @@ import {
   ValidateText
 } from "../styles/styledElements";
 import { useState, useEffect } from "react";
+import UserModal from "../components/AddUserModal";
 import validatePersonal from "../validators/validatePersonal";
 import Layout from "../layouts/Layout";
 import * as adminApi from "../apis/adminApi";
@@ -20,6 +23,7 @@ export default function UserManagementPage() {
   const [openEdit, setOpenEdit] = useState(false);
   const [error, setError] = useState({});
   const [selectedRow, setSelectedRow] = useState(-1);
+  const [showModal, setShowModal] = useState(false);
   const { addUser } = useUser();
   const initialInput = {
     firstName: "",
@@ -28,6 +32,14 @@ export default function UserManagementPage() {
     idCard: ""
   };
   const [input, setInput] = useState(initialInput);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
 
   useEffect(() => {
     const fetchAllRecord = async () => {
@@ -117,6 +129,10 @@ export default function UserManagementPage() {
   return (
     <Layout>
       <ContentBox>
+        <AddNewUserButton onClick={handleOpenModal}>
+          +
+          <UserIcon className="fa-solid fa-user" />
+        </AddNewUserButton>
         <Table>
           <thead>
             <tr>
@@ -217,6 +233,13 @@ export default function UserManagementPage() {
             ))}
           </tbody>
         </Table>
+        <UserModal
+          isOpen={showModal}
+          showModal={showModal}
+          setShowModal={setShowModal}
+          handleCloseModal={handleCloseModal}
+          handleOpenModal={handleOpenModal}
+        />
       </ContentBox>
     </Layout>
   );
